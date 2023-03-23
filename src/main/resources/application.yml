@@ -1,0 +1,19 @@
+server:
+  port: 8760
+
+spring:
+  application:
+    name: vine-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: vineId
+          uri: lb://VINE-CLIENT
+          predicates:
+            - Path=/**
+
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
