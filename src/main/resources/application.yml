@@ -10,7 +10,11 @@ spring:
         - id: vineId
           uri: lb://VINE-CLIENT
           predicates:
-            - Path=/**
+            - Path=/api/vine-service/**
+        - id: userId
+          uri: lb://USER-CLIENT
+          predicates:
+            - Path=/api/auth-service/**
 
 eureka:
   client:
